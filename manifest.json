@@ -1,0 +1,27 @@
+{
+  "name": "MayDayz Smokn Bar-Be-Cue",
+  "short_name": "MayDayz BBQ",
+  "description": "Authentic BBQ flavors delivered fresh. Explore our menu and stay SMOKED OUT.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff5722",
+  "icons": [
+    {
+      "src": "src/css/assets/Images/maydayz__64_x_64_px___logo__lLA_icon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "src/css/assets/Images/maydayz__64_x_64_px___logo__lLA_icon.ico",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "src/css/assets/Images/maydayz__64_x_64_px___logo__lLA_icon.ico",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

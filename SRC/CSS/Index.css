@@ -1,0 +1,262 @@
+@font-face {
+    font-family: FontC;
+    src: url("../ASSETS/FONTS/LTSuperior-SemiBold.otf");
+}
+
+@font-face {
+    font-family: FontA;
+    src: url("../ASSETS/FONTS/FIRES-PERSONAL-USE.ttf");
+}
+
+@font-face {
+    font-family: FontB;
+    src: url("../ASSETS/FONTS/Ricebox-Allcaps.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../ASSETS/IMAGES/MenuBackground.webp");
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+}
+
+.M-a-s {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+#small-logo-link {
+    display: flex;
+    margin-top: -70px;
+}
+
+.nav-left {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    gap: 10px;
+}
+
+.sign-up {
+    margin-left: auto;
+    flex-wrap: wrap;
+}
+
+.tabs {
+    background-color: #cc0000;
+    font-family: FontB;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 2.5vh;
+}
+
+.tabs:hover {
+    color: red;
+    background-color: white;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.Main {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-family: FontB;
+    margin-bottom: 260px;
+}
+
+#main-logo {
+    float: auto;
+    margin-bottom: -70px;
+}
+
+h1 {
+    font-family: FontA;
+    color: red;
+    font-size: 7vh;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+}
+
+h2 {
+    color: white;
+    font-size: 4vh;
+    margin-bottom: 80px;
+}
+
+@keyframes OrderMove {
+    0% {
+        border-bottom-right-radius: 25px;
+        margin-top: 100px;
+    }
+
+    50% {
+        border-bottom-right-radius: 100px;
+        background-color: white;
+        color: red;
+        box-shadow: 3px 3px 5px 3px red;
+        margin-top: 100px;
+        text-shadow: 1px 1px 2px white;
+    }
+
+    100% {
+        border-bottom-right-radius: 25px;
+        margin-top: 100px
+    }
+}
+
+.order-button {
+    background-color: red;
+    border: none;
+    color: white;
+    font-family: FontB;
+    padding: 20px;
+    font-size: 2.2vh;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px 3px white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    animation-name: OrderMove;
+    animation: OrderMove 4s infinite;
+}
+
+.order-button:hover {
+    background-color: white;
+    color: red;
+    animation: none;
+    box-shadow: none;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.Footer {
+    font-family: FontB;
+    font-size: 2.2vh;
+    background-color: black;
+    padding: 20px;
+    margin-top: 100px;
+    color: white;
+    text-align: center
+}
+
+#soxiety-logo {
+    font-family: FontC;
+}
+
+/* Media Query for Cell Phones */
+@media (max-width: 480px) {
+    body {
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .M-a-s {
+        flex-direction: column;
+        /* Stack navigation items vertically */
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: -20px;
+        gap: 15px;
+        /* Add spacing between items */
+    }
+
+    .nav-left,
+    .sign-up {
+        flex-direction: column;
+        justify-content: center;
+        margin: 10px 0;
+        gap: 25px;
+    }
+
+    .tabs {
+        font-size: 2.5vh;
+        /* Reduce font size for smaller screens */
+        padding: 10px;
+        text-align: center;
+        /* Center-align text */
+        width: 90%;
+        /* Make tabs take up most of the screen width */
+    }
+
+    #small-logo-link img {
+        height: 100px;
+        /* Reduce logo size */
+        width: 100px;
+        margin-top: 40px;
+    }
+
+    .Main {
+        margin-bottom: 100px;
+        /* Adjust spacing */
+    }
+
+    #main-logo img {
+        height: 400px;
+        /* Reduce main logo size */
+        width: 400px;
+    }
+
+    h1 {
+        font-size: 6vh;
+        /* Reduce heading size */
+    }
+
+    h2 {
+        font-size: 4vh;
+        /* Reduce subheading size */
+        margin-bottom: 40px;
+        /* Adjust spacing */
+    }
+
+    .order-button {
+        font-size: 3vh;
+        /* Reduce button font size */
+        padding: 15px;
+        /* Adjust padding */
+        width: 80%;
+        /* Make button take up most of the screen width */
+        margin: 0 auto;
+        /* Center the button */
+    }
+
+    .Footer {
+        font-size: 1.8vh;
+        /* Reduce footer font size */
+        padding: 10px;
+        /* Adjust padding */
+        margin-top: 50px;
+        /* Adjust margin */
+        text-align: center;
+    }
+
+    #soxiety-logo {
+        font-size: 1.5em;
+        /* Adjust font size for better readability */
+        text-align: center;
+        /* Ensure proper alignment */
+    }
+
+    #red {
+        color: red;
+        /* Ensure the red styling remains consistent */
+    }
+
+    .social-media img {
+        height: 20px;
+        /* Reduce social media icon size */
+        width: 20px;
+    }
+}

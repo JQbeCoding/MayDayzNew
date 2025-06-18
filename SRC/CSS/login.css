@@ -1,0 +1,139 @@
+@font-face {
+    font-family: FontB;
+    src: url("../assets/Fonts/Ricebox-Allcaps.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: FontA;
+    src: url("../assets/Fonts/FIRES-PERSONAL-USE.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: FontC;
+    src: url("../assets/Fonts/Pridi-Bold.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: FontD;
+    src: url("../assets/Fonts/LTSuperior-SemiBold.otf");
+    font-display: swap;
+}
+
+body {
+    background: url("../ASSETS/IMAGES/MenuBackground.webp");
+    background-color: black;
+    background-size: cover;
+    font-family: FontB;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.signup-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.signup-container h1 {
+    font-family: FontB;
+    text-align: center;
+    font-size: 4vh;
+    color: red;
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: gold;
+    margin-bottom: 20px;
+}
+
+.signup-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: gold;
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="tel"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+.signup-container button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: FontB;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+.signup-container button:hover {
+    background-color: gold;
+    color: red;
+}
+
+#Footer {
+    text-align: right;
+    padding: 10px;
+    margin-top: auto;
+}
+
+footer {
+    font-family: FontD;
+    font-size: 1.2vh;
+}
+
+#transparency {
+    color: gold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    outline: 20px white;
+}
+
+.IG {
+    cursor: pointer;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+
+}
+
+#privacy {
+    color: gold;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+
+#privacy:hover {
+    content: "";
+    color: red;
+    cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+    .signup-container {
+        max-width: 90%;
+    }
+}

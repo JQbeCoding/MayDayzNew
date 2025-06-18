@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PN5PZ1Z3KG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-PN5PZ1Z3KG");
+    </script>
+    <meta name="theme-color" content="red" />
+    <link rel="apple-touch-icon" href="src/css/assets/Images/maydayz__64_x_64_px___logo__lLA_icon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="MayDayz Smokn Bar-Be-Cue - Authentic BBQ flavors delivered fresh. Explore our menu and stay SMOKED OUT." />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Maydayz - WHO ARE WE?</title>
+    <link rel="icon" type="x-icon" href="/SRC/ASSETS/IMAGES/MAYDAYZ-FAV.png" />
+    <link rel="stylesheet" href="../CSS/about.css" />
+    <link rel="stylesheet" href="src/css/loading.css" />
+</head>
+
+<body>
+
+    <section class="logo-container">
+        <a id="about-logo" href="/Index.html">
+            <img src="../ASSETS/IMAGES/Maydayz-LOGO.svg" alt="logo-small" title="WELCOME TO MAYDAYZ" height="150"
+                width="150">
+        </a>
+    </section>
+
+    <section id="Nav-Left">
+        <div id="BIO">
+            <div id="Bio-Text" style="color: white; text-align: center;">
+                Welcome to Maydayz Smokn BBQ - where smoke meets soul.
+
+                Founded in 2024 by Charlotte native and pitmaster Ed May, Maydayz Smokn BBQ is more than just a BBQ
+                joint -
+                it's a family-run passion project built on bold flavor, slow-smoked tradition, and a whole lotta love.
+
+                We specialize in authentic smoked BBQ, cooked low and slow to juicy, smoky perfection. From tender
+                brisket
+                to ribs that fall off the bone, every bite is seasoned with our signature house-made rub - a carefully
+                crafted blend of spices that brings out the best in every cut.
+
+                And lets not forget our sauces - the stars of the show. Our rich cherry glaze and zesty tangy blend are
+                both made in-house, pairing perfectly with everything we smoke. They're sweet, they're bold, and they've
+                got
+                just the right kick.
+
+                At Maydayz, BBQ is personal. We're a family-managed crew serving up real-deal flavor with Southern
+                charm.
+                Whether you're stopping by for your first plate or your fiftieth, we'll treat you like one of our own:
+                plate stacked high, napkins ready.
+
+                Maydayz Smokn BBQ - WE SMOKED OUT.
+            </div>
+        </div>
+    </section>
+
+
+    <!--Section for the footer-->
+    <section class="Footer">
+        <footer>
+            <div id="soxiety-notice">
+                <p>Site Created by <br></p>
+            </div>
+            <div id="soxiety-logo">
+                <p>SO<span id="red" style="color:red">XI</span>ETY</p>
+            </div>
+            <nav class="social-media">
+                <div id="Social-Media">
+                    <p>Follow Maydayz</p>
+                </div>
+                <div id="Ig">
+                    <a href="https://www.instagram.com/maydayz_bbq/" target="_blank"><img
+                            src="/SRC/ASSETS/IMAGES/IG.webp" alt="IG" title="FOLLOW US" height="30px" width="30px"></a>
+                </div>
+            </nav>
+        </footer>
+    </section>
+
+    <!--Script for Page Loading-->
+    <script src="/SRC/JS/loading.js"></script>
+
+    <!--Script for the service worker-->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("/service-worker.js")
+                    .then((registration) => {
+                        console.log(
+                            "Service Worker registered with scope:",
+                            registration.scope
+                        );
+                    })
+                    .catch((error) => {
+                        console.error("Service Worker registration failed:", error);
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>

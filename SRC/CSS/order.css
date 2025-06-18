@@ -1,0 +1,501 @@
+@font-face {
+    font-family: FontC;
+    src: url("../ASSETS/FONTS/LTSuperior-SemiBold.otf");
+}
+
+@font-face {
+    font-family: FontA;
+    src: url("../ASSETS/FONTS/FIRES-PERSONAL-USE.ttf");
+}
+
+@font-face {
+    font-family: FontB;
+    src: url("../ASSETS/FONTS/Ricebox-Allcaps.ttf");
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a::before {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    color: white;
+    background-image: url("../ASSETS/IMAGES/MenuBackground.webp");
+    background-attachment: fixed;
+    font-family: FontB;
+    margin: 0;
+    padding: 0;
+}
+
+#Tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tab {
+    font-size: 3.3vh;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+
+    text-decoration: none;
+}
+
+.back-button {
+    font-size: 3.3vh;
+    padding: 10px;
+    margin-top: 140px;
+    color: white;
+    border-radius: 25px;
+    margin-right: auto;
+    background-color: #cc0000;
+    text-decoration: none;
+}
+
+.tab:hover {
+    background-color: #cc0000;
+    border-radius: 25px;
+    color: white;
+}
+
+.Header {
+    text-align: center;
+    margin-bottom: 100px;
+    gap: 100px;
+}
+
+.Platez-Header {
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.price {
+    font-family: FontC;
+    font-size: 20px;
+    margin-top: 10px;
+    color: black;
+}
+
+.featured {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    background-color: red;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 400px;
+    animation: Featured-gold linear 9s infinite;
+}
+
+.animated-image-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.animated-image-1 {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: Featured-Flash 9s infinite;
+}
+
+.animated-image-2 {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: Featured-Flash-2 9s infinite;
+}
+
+#plate1-animated-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: Item-Open 9s infinite;
+}
+
+#plate2-animated-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+}
+
+#plate3-animated-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+}
+
+#app1-animated-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: Sandwhich-Open 9s infinite;
+}
+
+#DSRT1-animated-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: Cobbler-Open 9s infinite;
+}
+
+#DSRT2-animated-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: Cobbler-Open 9s infinite;
+}
+
+#item-name {
+    text-align: center;
+}
+
+.featured:link .featured:hover {
+    text-decoration: none;
+    animation: none;
+}
+
+.name {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.Featured-Items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    background-color: red;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 400px;
+}
+
+.Items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+.Footer {
+    font-family: FontB;
+    font-size: 2.2vh;
+    background-color: black;
+    padding: 20px;
+    margin-top: 100px;
+    color: white;
+    text-align: center
+}
+
+#soxiety-logo {
+    font-family: FontC;
+}
+
+@keyframes Featured-Flash {
+    0% {
+        background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+    }
+
+    25% {
+        background-image: url("../ASSETS/IMAGES/Sampler.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    50% {
+        background-image: url("../ASSETS/IMAGES/Sampler.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    75% {
+        background-image: url("../ASSETS/IMAGES/Sampler.png");
+        height: 200px;
+        width: 200px;
+
+    }
+
+    100% {
+        background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+
+    }
+}
+
+@keyframes Featured-gold {
+    0% {
+        background-color: gold;
+        color: red;
+    }
+
+    5% {
+        background-color: red;
+        color: white;
+    }
+
+    25% {
+        background-color: red;
+        color: white;
+    }
+
+    50% {
+        background-color: red;
+        color: white;
+    }
+
+    75% {
+        background-color: red;
+        color: white;
+    }
+
+    100% {
+        background-color: gold;
+        color: red;
+    }
+}
+
+@keyframes Featured-Flash-2 {
+    0% {
+        background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+    }
+
+    25% {
+        background-image: url("../ASSETS/IMAGES/Rib-Plate.png");
+        height: 100%;
+        width: 100%;
+    }
+
+    50% {
+        background-image: url("../ASSETS/IMAGES/Rib-Plate.png");
+        height: 100%;
+        width: 100%;
+    }
+
+    75% {
+        background-image: url("../ASSETS/IMAGES/Rib-Plate.png");
+        height: 100%;
+        width: 100%;
+
+    }
+
+    100% {
+        background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+
+    }
+}
+
+@keyframes Item-Open {
+    0% {
+        background-image: url("../ASSETS/IMAGES/Cherry-Plate.png");
+
+    }
+
+    25% {
+        background-image: url("../ASSETS/IMAGES/wing-plate.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    50% {
+        background-image: url("../ASSETS/IMAGES/wing-plate.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    75% {
+        background-image: url("../ASSETS/IMAGES/wing-plate.png");
+        height: 200px;
+        width: 200px;
+
+    }
+
+    100% {
+        background-image: url("../ASSETS/IMAGES/Cherry-Plate.png");
+
+    }
+}
+
+@keyframes Sandwhich-Open {
+    0% {
+        background-image: url("../ASSETS/IMAGES/APPZ-Plate.png");
+
+    }
+
+    25% {
+        background-image: url("../ASSETS/IMAGES/Sandwhich.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    50% {
+        background-image: url("../ASSETS/IMAGES/Sandwhich.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    75% {
+        background-image: url("../ASSETS/IMAGES/Sandwhich.png");
+        height: 200px;
+        width: 200px;
+
+    }
+
+    100% {
+        background-image: url("../ASSETS/IMAGES/APPZ-Plate.png");
+
+    }
+}
+
+@keyframes Cobbler-Open {
+    0% {
+        background-image: url("../ASSETS/IMAGES/SIDEZ-Plate.png");
+
+    }
+
+    25% {
+        background-image: url("../ASSETS/IMAGES/Cobbler.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    50% {
+        background-image: url("../ASSETS/IMAGES/Cobbler.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    75% {
+        background-image: url("../ASSETS/IMAGES/Cobbler.png");
+        height: 200px;
+        width: 200px;
+
+    }
+
+    100% {
+        background-image: url("../ASSETS/IMAGES/SIDEZ-Plate.png");
+
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: cover;
+        /* Ensure background scales properly */
+        background-attachment: fixed;
+        font-size: 14px;
+        /* Adjust base font size for smaller screens */
+    }
+
+    #Tabs {
+        flex-direction: column;
+        /* Stack tabs vertically */
+        gap: 10px;
+        /* Reduce spacing between tabs */
+        margin-top: 10px;
+        /* Adjust margin above tabs */
+    }
+
+    .tab {
+        font-size: 2.5vh;
+        /* Reduce font size for tabs */
+        padding: 8px 15px;
+        /* Adjust padding for smaller screens */
+        width: 90%;
+        /* Make tabs take up most of the screen width */
+        text-align: center;
+    }
+
+    .Featured-Items {
+        flex-direction: column;
+        /* Stack featured items vertically */
+        gap: 30px;
+        /* Reduce spacing between items */
+        margin: 0 auto;
+        /* Center items */
+    }
+
+    .animated-image-container {
+        margin-bottom: 15px;
+        /* Adjust spacing below the image */
+    }
+
+    .name {
+        font-size: 20px;
+        /* Reduce font size for item names */
+        margin-bottom: 5px;
+        /* Adjust spacing below the name */
+    }
+
+    .price {
+        font-size: 16px;
+        /* Reduce font size for prices */
+        margin-top: 5px;
+        /* Adjust spacing above the price */
+    }
+
+    .Footer {
+        font-size: 1.5vh;
+        /* Reduce font size for footer text */
+        padding: 10px;
+        /* Adjust padding */
+        margin-top: 30px;
+        /* Reduce margin above the footer */
+        text-align: center;
+    }
+
+    #soxiety-logo {
+        font-size: 1.2em;
+        /* Adjust font size for the logo */
+        text-align: center;
+    }
+}

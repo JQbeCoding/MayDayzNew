@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PN5PZ1Z3KG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-PN5PZ1Z3KG");
+    </script>
+    <meta name="theme-color" content="red" />
+    <link rel="apple-touch-icon" href="src/css/assets/Images/maydayz__64_x_64_px___logo__lLA_icon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="MayDayz Smokn Bar-Be-Cue - Authentic BBQ flavors delivered fresh. Explore our menu and stay SMOKED OUT." />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Maydayz APPZ</title>
+    <link rel="icon" type="x-icon" href="/SRC/ASSETS/IMAGES/MAYDAYZ-FAV.png" />
+    <link rel="stylesheet" href="../css/order.css" />
+    <link rel="stylesheet" href="src/css/loading.css" />
+    <style>
+        #paymentModal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        #paymentModal iframe {
+            width: 90%;
+            height: 90%;
+            border: none;
+            margin: 5% auto;
+            display: block;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        #closeModal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 50px;
+            color: rgba(255, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        .order-button {
+            background-color: red;
+            border: none;
+            color: white;
+            font-family: FontB;
+            padding: 15px 30px;
+            font-size: 2.2vh;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 25px;
+            box-shadow: 0px 0px 15px 3px white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .order-button:hover {
+            background-color: white;
+            color: red;
+            box-shadow: none;
+            text-shadow: none;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="Platez-Header">
+        <div id="back">
+            <a class="back-button" href="order.html">GO BACK</a>
+        </div>
+    </section>
+
+    <section class="Items">
+        <div id="APP-1">
+            <div class="Items">
+                <div class="item">
+                    <div class="animated-image-container">
+                        <div id="app1-animated-image"></div>
+                    </div>
+                    <div id="item-name">
+                        <p class="name">SANDWHICHES</p>
+                    </div>
+                    <div id="price">
+                        <p class="price">$8.00</p>
+                    </div>
+                        <button class="order-button" onclick="openPaymentModal('https://square.link/u/Y0cOImSn')">
+                            Order
+                            SANDWHICH
+                        </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="paymentModal">
+        <span id="closeModal">&times;</span>
+        <iframe id="paymentFrame" src=""></iframe>
+    </div>
+
+    <section class="Footer">
+        <footer>
+            <div id="soxiety-notice">
+                <p>Site Created by <br></p>
+            </div>
+            <div id="soxiety-logo">
+                <p>SO<span id="red" style="color:red">XI</span>ETY</p>
+            </div>
+            <nav class="social-media">
+                <div id="Social-Media">
+                    <p>Follow Maydayz</p>
+                </div>
+                <div id="Ig">
+                    <a href="https://www.instagram.com/maydayz_bbq/" target="_blank"><img
+                            src="/SRC/ASSETS/IMAGES/IG.webp" alt="IG" title="FOLLOW US" height="30px" width="30px"></a>
+                </div>
+            </nav>
+        </footer>
+    </section>
+
+    <!--Script for Page Loading-->
+    <script src="/SRC/JS/loading.js"></script>
+
+    <!--Script for the service worker-->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("/service-worker.js")
+                    .then((registration) => {
+                        console.log(
+                            "Service Worker registered with scope:",
+                            registration.scope
+                        );
+                    })
+                    .catch((error) => {
+                        console.error("Service Worker registration failed:", error);
+                    });
+            });
+        }
+    </script>
+
+<script>
+    function openPaymentModal(link) {
+        document.getElementById('paymentFrame').src = link;
+        document.getElementById('paymentModal').style.display = 'block';
+    }
+
+    document.getElementById('closeModal').onclick = function () {
+        document.getElementById('paymentModal').style.display = 'none';
+        document.getElementById('paymentFrame').src = '';
+    }
+
+    window.onclick = function (event) {
+        const modal = document.getElementById('paymentModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.getElementById('paymentFrame').src = '';
+        }
+    }
+</script>
+</body>
+
+</html>

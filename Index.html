@@ -1,0 +1,127 @@
+<!--WE SMOKED OUT!!-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PN5PZ1Z3KG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-PN5PZ1Z3KG");
+    </script>
+    <meta name="theme-color" content="red" />
+    <link rel="apple-touch-icon" href="src/css/assets/Images/maydayz__64_x_64_px___logo__lLA_icon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="MayDayz Smokn Bar-Be-Cue - Authentic BBQ flavors delivered fresh. Explore our menu and stay SMOKED OUT." />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Maydayz - We Smoked Out!</title>
+    <link rel="icon" type="x-icon" href="/SRC/ASSETS/IMAGES/MAYDAYZ-FAV.png" />
+    <link rel="stylesheet" href="src/css/Index.css" />
+    <link rel="stylesheet" href="src/css/loading.css" />
+</head>
+
+<body class="appear">
+    
+    <!--Section for Menu, Catering, About Page, and Sign Up-->
+    <section class="M-a-s">
+        <nav class="nav-left">
+
+            <div id="logo-tab">
+                <a id="small-logo-link" href="Index.html">
+                    <img src="/SRC/ASSETS/IMAGES/Maydayz-LOGO.svg" alt="logo-small" title="WELCOME TO MAYDAYZ"
+                        height="150" width="150">
+                </a>
+            </div>
+            <div id="about-tab">
+                <a class="tabs" href="SRC/HTML/about.html">ABOUT US</a>
+            </div>
+            <div id="menu-tab">
+                <a class="tabs" href="SRC/HTML/menu.html">MENU</a>
+            </div>
+            <!--
+            <div id="catering-tab">
+                <a class="tabs" href="SRC/HTML/catering.html">CATERING</a>
+            </div>-->
+        </nav>
+        <nav class="sign-up">
+            <div id="signup-tab">
+                <a class="tabs" href="SRC/HTML/login.html">SIGN UP</a>
+            </div>
+        </nav>
+    </section>
+
+    <!--Section for Logo and the Title-->
+    <section class="Main">
+        <div id="main-logo">
+            <a href="/Index.html">
+                <img src="/SRC/ASSETS/IMAGES/Maydayz-LOGO.svg" alt="main-logo" title="WE SMOKED OUT!!" height="500"
+                    width="500">
+            </a>
+        </div>
+        <div id="message">
+            <div id="name">
+                <h1>WELCOME TO MAYDAYZ</h1>
+            </div>
+            <div id="slogan">
+                <h2>WE SMOKED OUT</h2>
+            </div>
+        </div>
+        <div id="order-sec">
+            <a href="/SRC/HTML/order.html" class="order-button" onclick="orderPopup()">
+                ORDER NOW
+            </a>
+        </div>
+    </section>
+
+    <!--Section for the footer-->
+    <section class="Footer">
+        <footer>
+            <div id="soxiety-notice">
+                <p>Site Created by <br></p>
+            </div>
+            <div id="soxiety-logo">
+                <p>SO<span id="red" style="color:red">XI</span>ETY</p>
+            </div>
+            <nav class="social-media">
+                <div id="Social-Media">
+                    <p>Follow Maydayz</p>
+                </div>
+                <div id="Ig">
+                    <a href="https://www.instagram.com/maydayz_bbq/" target="_blank"><img
+                            src="/SRC/ASSETS/IMAGES/IG.webp" alt="IG" title="FOLLOW US" height="30px" width="30px"></a>
+                </div>
+            </nav>
+        </footer>
+    </section>
+
+    <!--Script for Page Loading-->
+    <script src="/SRC/JS/loading.js"></script>
+
+    <!--Script for the service worker-->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("/service-worker.js")
+                    .then((registration) => {
+                        console.log(
+                            "Service Worker registered with scope:",
+                            registration.scope
+                        );
+                    })
+                    .catch((error) => {
+                        console.error("Service Worker registration failed:", error);
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>
