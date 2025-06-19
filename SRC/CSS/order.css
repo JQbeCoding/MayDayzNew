@@ -113,74 +113,44 @@ h2 {
 }
 
 .animated-image-container {
-    width: 200px;
-    height: 200px;
-    border-radius: 25px;
-    overflow: hidden;
-    margin-bottom: 20px;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
-.animated-image-1 {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: Featured-Flash 9s infinite;
+.animated-frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+  transform: translate(-50%);
+  border-radius: 25px;
 }
 
-.animated-image-2 {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: Featured-Flash-2 9s infinite;
+.frame-1 {
+  opacity: 1;
+  animation: fadeOutIn 9s infinite;
 }
 
-#plate1-animated-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: Item-Open 9s infinite;
+.frame-2 {
+  opacity: 0;
+  animation: fadeInOut 9s infinite;
 }
 
-#plate2-animated-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+@keyframes fadeOutIn {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-#plate3-animated-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
-#app1-animated-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: Sandwhich-Open 9s infinite;
-}
-
-#DSRT1-animated-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: Cobbler-Open 9s infinite;
-}
-
-#DSRT2-animated-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: Cobbler-Open 9s infinite;
-}
 
 #item-name {
     text-align: center;
