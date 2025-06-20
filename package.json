@@ -1,13 +1,20 @@
 {
-  "name": "browser",
+  "name": "MaydayzSite",
   "version": "1.0.0",
-  "main": "main.js",
+  "description": "My website for Maydayz",
+  "main": "server.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "corepack enable && yarn install",
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "Soxiety Technologu Solutions",
-  "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "repository": "https://github.com/JQbeCoding/MaydayzSite.git",
+  "author": "Ja'Quis <jaquismay2004@gmail.com>",
+  "license": "MIT"
 }
