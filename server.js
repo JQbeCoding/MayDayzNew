@@ -6,6 +6,7 @@ const { createClient } = require("@supabase/supabase-js");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
+const twilio = require('twilio');
 
 //Allows for the env
 dotenv.config();
