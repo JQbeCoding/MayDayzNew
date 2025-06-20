@@ -75,6 +75,11 @@ app.post("/signup", async (req, res) => {
 });
 
 
+app.get('/sms-reply', (req, res) => {
+  res.send('This endpoint is for Twilio SMS webhooks. Please use POST requests only.');
+});
+
+
 app.post('/sms-reply', (req, res) => {
   const twiml = new twilio.twiml.MessagingResponse();
   twiml.message('This number is not meant for replies. Please contact 980-499-8399 for help. STAY SMOKED OUT!!');
