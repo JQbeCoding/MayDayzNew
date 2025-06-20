@@ -73,6 +73,15 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+
+app.post('/sms-reply', (req, res) => {
+  const twiml = new twilio.twiml.MessagingResponse();
+  twiml.message('This number is not meant for replies. Please contact 980-499-8399 for help. STAY SMOKED OUT!!');
+
+  res.type('text/xml');
+  res.send(twiml.toString());
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
