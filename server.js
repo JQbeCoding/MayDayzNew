@@ -82,7 +82,7 @@ app.get('/sms-reply', (req, res) => {
 
 app.post('/sms-reply', (req, res) => {
   const twiml = new twilio.twiml.MessagingResponse();
-  twiml.message('This number is not meant for replies. Please contact 980-499-8399 for help. STAY SMOKED OUT!!');
+  twiml.message('This number is not meant for orders. Please contact 980-499-8399 TO ORDER!!. STAY SMOKED OUT!!');
 
   res.type('text/xml');
   res.send(twiml.toString());
