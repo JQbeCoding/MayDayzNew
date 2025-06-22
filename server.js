@@ -1,37 +1,30 @@
-/* Imports for the server hosted on Render backend
- */
 const express = require("express");
 const dotenv = require("dotenv");
 const { createClient } = require("@supabase/supabase-js");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
-const twilio = require('twilio');
+const twilio = require("twilio");
 
-//Allows for the env
 dotenv.config();
-//Reads the env file
+
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 
-// Create a Supabase client
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-//Initialize express as app
 const app = express();
-//Uses port from express or local
 const port = process.env.PORT || 3000;
 
-//Parses the local JSON file
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
-//First instance of cors. Reads from all enviornments
 const corsOptions = {
   origin: [
     "https://maydayz.com",
     "https://maydayzsite.onrender.com",
     "http://localhost:3000",
+    "http://localhost:5500",
   ],
 };
 app.use(cors(corsOptions));
@@ -43,52 +36,133 @@ app.get("/", (request, response) => {
   response.sendFile(path.join(__dirname, "Index.html"));
 });
 
-//Retrieves the Index file
-app.get("/", (request, response) => {
-  response.sendFile(path.join(__dirname, "Index.html"));
-});
-
-//console.log('Directory: ', path.join(__dirname, 'index.html')); <-- This was for debugging
-
-// Handle the /signup POST request
 app.post("/signup", async (req, res) => {
   try {
-    //Reads from the Supabase Postgre DB
-    const { data, error } = await supabase
-      .from("MaydayzCustomers")
-      .insert([req.body]);
-    console.log("Customer: ", data);
+    const { name, email, phoneNumber, emailOptIn, smsOptIn } = req.body;
 
-    //If it doesn't work it sends an error to the catch
-    if (error) {
-      console.error("Supabase error during signup:", error);
-      return res.status(500).send(error.message);
+    if (!name || !email || !phoneNumber) {
+      return res.status(400).send("Missing required fields.");
     }
-    //Otherwise we send back to the login the sign up was sucessful
-    console.log("Signup successful!", data);
-    res.send("Signup successful!");
-  } catch (error) {
-    //If an error was responded, we send that message to the Login page so the user can see the feedback
-    console.error("Error during signup:", error);
-    res.status(500).send("An error occurred during signup.");
+
+    const { data: existingUser, error: checkError } = await supabase
+      .from("MaydayzCustomers")
+      .select("*")
+      .or(`email.eq.${email},name.eq.${name}`);
+
+    if (checkError) {
+      console.error("Error checking for existing user:", checkError);
+      return res.status(500).send("Error checking for existing user.");
+    }
+
+    if (existingUser.length > 0) {
+      return res
+        .status(409)
+        .send("User with this name or email already exists.");
+    }
+
+    const { data, error } = await supabase.from("MaydayzCustomers").insert([
+      {
+        name,
+        email,
+        phoneNumber,
+        emailOptIn,
+        smsOptIn,
+      },
+    ]);
+
+    if (error) {
+      console.error("Error inserting user:", error);
+      return res.status(500).send("Error creating user.");
+    }
+
+    console.log("User created:", data);
+    return res.status(201).send("Signup successful!");
+  } catch (err) {
+    console.error("Unexpected error during signup:", err);
+    return res.status(500).send("An unexpected error occurred.");
   }
 });
 
+app.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-app.get('/sms-reply', (req, res) => {
-  res.send('This endpoint is for Twilio SMS webhooks. Please use POST requests only.');
+    if (!email || !password) {
+      return res.status(400).send("Missing email or password.");
+    }
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      console.error("Supabase Login Error:", error);
+      return res.status(401).send(`Login failed: ${error.message}`);
+    }
+
+    if (data.user) {
+      console.log("User logged in:", data.user);
+      return res.status(200).send("Login successful!");
+    } else {
+      return res
+        .status(200)
+        .send("Login initiated. Check your email for a magic link!");
+    }
+  } catch (err) {
+    console.error("Unexpected error during login:", err);
+    return res.status(500).send("An unexpected error occurred during login.");
+  }
 });
 
+app.get("/auth/callback", async function (req, res) {
+  const code = req.query.code;
+  const next = req.query.next ?? "/";
 
-app.post('/sms-reply', (req, res) => {
+  if (code) {
+    const { createServerClient } = require("@supabase/ssr");
+
+    const supabaseServer = createServerClient(
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_ANON_KEY,
+      {
+        cookies: {
+          getAll: () => req.headers.cookie,
+          setAll: (cookiesToSet) => {
+            cookiesToSet.forEach(({ name, value, options }) => {
+              res.appendHeader(
+                "Set-Cookie",
+                `${name}=${value}; ${Object.entries(options)
+                  .map(([k, v]) => `${k}=${v}`)
+                  .join("; ")}`
+              );
+            });
+          },
+        },
+      }
+    );
+    await supabaseServer.auth.exchangeCodeForSession(code);
+  }
+
+  res.redirect(303, next);
+});
+
+app.get("/sms-reply", (req, res) => {
+  res.send(
+    "This endpoint is for Twilio SMS webhooks. Please use POST requests only."
+  );
+});
+
+app.post("/sms-reply", (req, res) => {
   const twiml = new twilio.twiml.MessagingResponse();
-  twiml.message('This number is not meant for orders. Please contact 980-499-8399 TO ORDER!!. STAY SMOKED OUT!!');
+  twiml.message(
+    "This number is not meant for orders. Please contact 980-499-8399 TO ORDER!!. STAY SMOKED OUT!!"
+  );
 
-  res.type('text/xml');
+  res.type("text/xml");
   res.send(twiml.toString());
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

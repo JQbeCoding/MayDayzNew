@@ -84,20 +84,74 @@ body {
     width: 100%;
 }
 
-.signup-container button:hover {
+.login-container button:hover {
     background-color: gold;
     color: red;
 }
 
-#Footer {
-    text-align: right;
+.login-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.login-container h1 {
+    font-family: FontB;
+    text-align: center;
+    font-size: 4vh;
+    color: red;
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: gold;
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: gold;
+}
+
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="tel"] {
+    width: calc(100% - 22px);
     padding: 10px;
-    margin-top: auto;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+.login-container button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: FontB;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+.login-container button:hover {
+    background-color: gold;
+    color: red;
 }
 
 footer {
     font-family: FontD;
     font-size: 1.2vh;
+}
+
+.transparency {
+    color: gold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    outline: 20px white;
 }
 
 #transparency {
