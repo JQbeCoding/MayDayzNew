@@ -335,6 +335,37 @@ h2 {
     }
 }
 
+@keyframes Item-Open-2 {
+    0% {
+        background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+
+    }
+
+    25% {
+        background-image: url("../ASSETS/IMAGES/pork-plate.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    50% {
+        background-image: url("../ASSETS/IMAGES/pork-plate.png");
+        height: 200px;
+        width: 200px;
+    }
+
+    75% {
+        background-image: url("../ASSETS/IMAGES/pork-plate.png");
+        height: 200px;
+        width: 200px;
+
+    }
+
+    100% {
+        background-image: url("../ASSETS/IMAGES/Closed-Plate.png");
+
+    }
+}
+
 @keyframes Sandwhich-Open {
     0% {
         background-image: url("../ASSETS/IMAGES/APPZ-Plate.png");
