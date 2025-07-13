@@ -1,62 +1,42 @@
-const CACHE_NAME = "maydayz-runtime-cache-v1";
-
 self.addEventListener("install", (event) => {
-  console.log("Service Worker installed (no precaching).");
+  console.log("[SW] Installing self-destructing Service Worker...");
   event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener("activate", (event) => {
-  const cacheWhitelist = [CACHE_NAME];
+  console.log("[SW] Activating self-destructing Service Worker...");
   event.waitUntil(
     caches
       .keys()
       .then((cacheNames) => {
+        // Delete ALL caches controlled by this origin
         return Promise.all(
           cacheNames.map((cacheName) => {
-            if (!cacheWhitelist.includes(cacheName)) {
-              console.log("Deleting old cache:", cacheName);
-              return caches.delete(cacheName);
-            }
+            console.log(`[SW] Deleting cache: ${cacheName}`);
+            return caches.delete(cacheName);
           })
         );
       })
-      .then(() => self.clients.claim())
+      .then(() => {
+        console.log("[SW] All caches cleared. Unregistering self.");
+        // Get all clients controlled by this Service Worker
+        return self.clients.claim().then(() => {
+          // Find the controlling Service Worker and unregister it
+          return self.registration.unregister();
+        });
+      })
+      .then(() => {
+        console.log(
+          "[SW] Service Worker successfully unregistered. Please refresh the page."
+        );
+      })
+      .catch((error) => {
+        console.error("[SW] Error during unregistration:", error);
+      })
   );
 });
 
 self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches
-      .match(event.request)
-      .then((cachedResponse) => {
-        if (cachedResponse) {
-          console.log("Serving from cache:", event.request.url);
-          return cachedResponse;
-        }
-        return fetch(event.request)
-          .then((response) => {
-            if (
-              !response ||
-              response.status !== 200 ||
-              response.type !== "basic"
-            ) {
-              return response;
-            }
-
-            return caches.open(CACHE_NAME).then((cache) => {
-              console.log("Fetching and caching new asset:", event.request.url);
-              cache.put(event.request, response.clone());
-              return response;
-            });
-          })
-          .catch((error) => {
-            console.error("Fetch failed (network issue):", error);
-            throw error;
-          });
-      })
-      .catch((error) => {
-        console.error("Error during fetch or cache match:", error);
-        throw error;
-      })
-  );
+  // console.log('[SW] Fetch event - passing through for unregistering SW:', event.request.url);
+  event.respondWith(fetch(event.request));
 });

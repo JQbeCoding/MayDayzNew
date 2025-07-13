@@ -48,6 +48,8 @@
                 <a class="tabs" href="SRC/HTML/menu.html">MENU</a>
             </div> -->
 
+            </div>
+
             <!--
             <div id="catering-tab">
                 <a class="tabs" href="SRC/HTML/catering.html">CATERING</a>
@@ -127,7 +129,6 @@
     <!--Script for Page Loading-->
     <script src="/SRC/JS/loading.js"></script>
 
-    <!--Script for the service worker-->
     <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {
@@ -135,7 +136,7 @@
                     .register("/service-worker.js")
                     .then((registration) => {
                         console.log(
-                            "Service Worker registered with scope:",
+                            "Service Worker registration initiated for unregistration:",
                             registration.scope
                         );
                     })
