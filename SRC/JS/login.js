@@ -13,6 +13,12 @@ let currentLoginType = null;
 let currentNewUserId = null;
 
 // --- Helper Functions ---
+const otpVerificationSection = document.getElementById("otpVerificationSection");
+const otpMessage = document.getElementById("otpMessage");
+const otpInput = document.getElementById("otpInput");
+const otpVerificationForm = document.getElementById("otpVerificationForm");
+const resendOtpButton = document.getElementById("resendOtpButton");
+
 function showOtpSection(message) {
   document.getElementById("loginFormCustom").style.display = "none";
   document.getElementById("loginFormPhone").style.display = "none";
